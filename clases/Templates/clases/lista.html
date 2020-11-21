@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Clases</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+         <h1>Lista de clases</h1>
+         <p>Da click en la clase para ver los alumnos</p>
+        {% if clases %}
+         <table class="table table-striped">
+            <tr>
+                <th>Nombre</th>
+                <th>Salon</th>
+            </tr>
+
+                {% for clase in clases %}
+                <tr>
+                    <td>{{forloop.counter}} <a href="http://127.0.0.1:8000/get_clases/{{clase.id}}">{{clase.nombre}}</a></td>
+                    <td>{{clase.salon}}</td>
+                </tr>
+                {% endfor %}
+
+         </table>
+        {% else %}
+            <p>No existen datos</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
